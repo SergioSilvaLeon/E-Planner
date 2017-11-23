@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "52472574055",
+    "firebase_url": "https://e-planner-35b46.firebaseio.com",
+    "project_id": "e-planner-35b46",
+    "storage_bucket": "e-planner-35b46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52472574055:android:c422dff85bf5adef",
+        "android_client_info": {
+          "package_name": "com.tecnologiasintech.e_planner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52472574055-ls5o8flo74sq8bvlb09dp71e08eiovt2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tecnologiasintech.e_planner",
+            "certificate_hash": "3b59e9c9a7a026c04dc8efad198908afa4bf4677"
+          }
+        },
+        {
+          "client_id": "52472574055-4qcna693a1ep3iujk4telg6jeko6v52i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK1-sWTlBr-PiihywVhFp9MCTiObDwrDs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52472574055-4qcna693a1ep3iujk4telg6jeko6v52i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
