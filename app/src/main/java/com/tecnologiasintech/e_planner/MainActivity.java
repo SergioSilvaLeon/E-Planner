@@ -33,7 +33,15 @@ public class MainActivity extends AppCompatActivity {
             addUser();
         }
 
+        if (item.getItemId() == R.id.action_change_password){
+            changeUserPassword();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void changeUserPassword() {
+        startActivity(new Intent(this, ChangePasswordActivity.class));
     }
 
     private void addUser() {
