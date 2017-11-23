@@ -29,7 +29,15 @@ public class MainActivity extends AppCompatActivity {
             userSignOut();
         }
 
+        if (item.getItemId() == R.id.action_add_user){
+            addUser();
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addUser() {
+        startActivity(new Intent(this, SignupActivity.class));
     }
 
     private void userSignOut() {
