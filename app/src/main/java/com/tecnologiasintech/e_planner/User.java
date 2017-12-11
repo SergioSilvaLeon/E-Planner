@@ -8,12 +8,14 @@ public class User {
 
     private String email;
     private String fullName;
+    private boolean isAdmin;
 
     public User(){}
 
-    public User(String email, String fullName) {
+    public User(String email, String fullName, boolean isAdmin) {
         this.email = email;
         this.fullName = fullName;
+        this.isAdmin = isAdmin;
     }
 
     public String getEmail() {
@@ -30,5 +32,13 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
