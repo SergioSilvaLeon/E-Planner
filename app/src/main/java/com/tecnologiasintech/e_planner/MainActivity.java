@@ -1,6 +1,8 @@
 package com.tecnologiasintech.e_planner;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,10 +12,54 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
+    private AdapterViewPager mAdapterViewPager;
+    private ViewPager mViewPager;
+    private TabLayout mTabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Create Costume Tablayout for main view.
+        setTabLayout();
+
+        // Create Costume Adapter for View Pager
+        setViewPager();
+
+    }
+
+    private void setViewPager() {
+
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+
+         mAdapterViewPager = new AdapterViewPager(
+                 getSupportFragmentManager(),
+                 mTabLayout.getTabCount()
+         );
+
+         mViewPager.setAdapter(mAdapterViewPager);
+
+         // Enables Swiping
+        mTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    private void setTabLayout() {
+
+        // Instanciate a Tab Layout
+        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
+
+        // We also asign a centered gravity.
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        // Add "Fixed Mode" so  all the tabs are the same size.
+        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+
+        //Added two tabs to tabLayout
+        mTabLayout.addTab(mTabLayout.newTab());
+        mTabLayout.addTab(mTabLayout.newTab());
+        mTabLayout.addTab(mTabLayout.newTab());
+        mTabLayout.addTab(mTabLayout.newTab());
     }
 
     @Override
