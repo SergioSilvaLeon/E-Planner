@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputfullName;
     private Button btnSignUp;
+    private CheckBox mCheckBox;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     private static final String PASSWORD = "nearsoft";
@@ -37,6 +39,7 @@ public class SignupActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up_button);
         inputEmail = (EditText) findViewById(R.id.email);
         inputfullName = (EditText) findViewById(R.id.fullName);
+        mCheckBox = (CheckBox) findViewById(R.id.checkBoxAdmin);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
@@ -83,7 +86,7 @@ public class SignupActivity extends AppCompatActivity {
                                     DatabaseReference databaseReference =
                                             FirebaseDatabase.getInstance().getReference("EPlanner/User");
 
-                                    User user = new User(email, fullName);
+                                    User user = new User(email, fullName, mCheckBox.isChecked() );
 
                                     databaseReference.push().setValue(user);
 
