@@ -54,6 +54,11 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         } else {
                             Toast.makeText(ChangePasswordActivity.this, "Failed to update password!", Toast.LENGTH_SHORT).show();
                             mProgressBar.setVisibility(View.GONE);
+                            try {
+                                this.finalize();
+                            } catch (Throwable throwable) {
+                                throwable.printStackTrace();
+                            }
                         }
                     }
                 });
