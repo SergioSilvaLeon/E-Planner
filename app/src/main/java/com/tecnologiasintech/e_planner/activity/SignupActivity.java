@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.activity;
 
 
 import android.os.Bundle;
@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.tecnologiasintech.e_planner.R;
+import com.tecnologiasintech.e_planner.model.User;
 
 public class SignupActivity extends AppCompatActivity {
 

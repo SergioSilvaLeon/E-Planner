@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.activity;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.tecnologiasintech.e_planner.R;
 
 
 public class ChangePasswordActivity extends AppCompatActivity {

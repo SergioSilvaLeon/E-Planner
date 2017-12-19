@@ -1,14 +1,19 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.tecnologiasintech.e_planner.fragment.EventFragment;
+import com.tecnologiasintech.e_planner.fragment.MentorFragment;
+import com.tecnologiasintech.e_planner.fragment.ParticipantFragment;
+import com.tecnologiasintech.e_planner.fragment.PurposedEventFragment;
+
 /**
  * Created by sergiosilva on 12/19/17.
  */
 
-class AdapterViewPager extends FragmentPagerAdapter {
+public class AdapterViewPager extends FragmentPagerAdapter {
 
     private int mNumberOfTabs;
 

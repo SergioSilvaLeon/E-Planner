@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

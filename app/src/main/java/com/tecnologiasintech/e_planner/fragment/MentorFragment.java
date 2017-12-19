@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.fragment;
 
 import android.support.v4.app.Fragment;
 

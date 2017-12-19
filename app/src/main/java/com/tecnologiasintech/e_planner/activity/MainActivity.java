@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.tecnologiasintech.e_planner.adapter.AdapterViewPager;
+import com.tecnologiasintech.e_planner.R;
 
 public class MainActivity extends AppCompatActivity {
 

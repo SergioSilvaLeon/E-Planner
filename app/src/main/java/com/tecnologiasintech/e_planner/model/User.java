@@ -1,4 +1,4 @@
-package com.tecnologiasintech.e_planner;
+package com.tecnologiasintech.e_planner.model;
 
 /**
  * Created by sergiosilva on 11/23/17.
