@@ -60,7 +60,7 @@ public class AdapterViewPager extends FragmentPagerAdapter {
         switch (position) {
 
             case 0: // The first tab will always initialize at 0.
-                return "Propuestos";
+                return "Propuesto";
             case 1:
                 return "Evento";
             case 2:
