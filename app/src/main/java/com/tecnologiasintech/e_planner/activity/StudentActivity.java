@@ -27,6 +27,7 @@ public class StudentActivity extends AppCompatActivity {
     public static final String EXTRA_TECHNOLOGY = "EXTRA_TECHNOLOGY";
     public static final String EXTRA_ORGINIAZTION = "EXTRA_ORGINIAZTION";
     public static final String EXTRA_SEMESTER = "EXTRA_SEMESTER";
+    public static final String EXTRA_KEY = "EXTRA_KEY";
 
 
     private RecyclerView mRecyclerView;
@@ -86,7 +87,7 @@ public class StudentActivity extends AppCompatActivity {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                //mStudentAdapter.notifyDataSetChanged();
             }
 
             @Override

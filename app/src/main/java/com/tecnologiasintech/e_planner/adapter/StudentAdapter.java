@@ -6,12 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tecnologiasintech.e_planner.R;
+import com.tecnologiasintech.e_planner.activity.CreateStudentActivity;
 import com.tecnologiasintech.e_planner.activity.StudentActivity;
 import com.tecnologiasintech.e_planner.activity.StudentVeiwActivity;
+import com.tecnologiasintech.e_planner.activity.UpdateStudentActivity;
 import com.tecnologiasintech.e_planner.model.Student;
 
 import java.util.ArrayList;
@@ -64,10 +69,15 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView mTextView;
+        public ImageView mImageViewDelete;
+        public ImageView mImageViewOptions;
+
 
         public ViewHolder(View itemView) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.nameTxt);
+            mImageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewDelete);
+            mImageViewOptions = (ImageView) itemView.findViewById(R.id.imageViewOptions);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,7 +87,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                     if (pos != RecyclerView.NO_POSITION){
 
                         Student student = mStudentList.get(pos);
-
                         // Get Information and pass to new activity;
                         Intent intent = new Intent(mContext, StudentVeiwActivity.class);
                         intent.putExtra(StudentActivity.EXTRA_NAME, student.getName());
@@ -91,6 +100,54 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
 
                     }
 
+                }
+            });
+
+            mImageViewOptions.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION){
+
+                        Student student = mStudentList.get(pos);
+                        // Get Information and pass to new activity;
+                        Intent intent = new Intent(mContext, UpdateStudentActivity.class);
+                        intent.putExtra(StudentActivity.EXTRA_NAME, student.getName());
+                        intent.putExtra(StudentActivity.EXTRA_EMAIL, student.getEmail());
+                        intent.putExtra(StudentActivity.EXTRA_SCHOOL, student.getSchool());
+                        intent.putExtra(StudentActivity.EXTRA_TSHIRTSIZE, student.gettShirtSize());
+                        intent.putExtra(StudentActivity.EXTRA_TECHNOLOGY, student.getTechnology());
+                        intent.putExtra(StudentActivity.EXTRA_ORGINIAZTION, student.getOranization());
+                        intent.putExtra(StudentActivity.EXTRA_SEMESTER, student.getSemester());
+                        intent.putExtra(StudentActivity.EXTRA_KEY, student.getKey());
+
+                        mContext.startActivity(intent);
+
+                    }
+                }
+            });
+
+            mImageViewDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION){
+
+                        String key = mStudentList.get(pos).getKey();
+
+                        mStudentList.remove(pos);
+
+                        notifyDataSetChanged();
+
+                        // remove from firebase
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                                .getReference("EPlanner/Student");
+                        databaseReference.child(key).removeValue();
+
+
+                    }
                 }
             });
         }

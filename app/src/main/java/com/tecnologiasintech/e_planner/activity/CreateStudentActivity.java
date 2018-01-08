@@ -25,6 +25,9 @@ public class CreateStudentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_student);
 
+        //Know which reference to update
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
          editTextName = (EditText) findViewById(R.id.editText_name);
@@ -57,9 +60,15 @@ public class CreateStudentActivity extends AppCompatActivity {
         String orginization = editTextOrginization.getText().toString();
         String semester = editTextSemester.getText().toString();
 
-        Student student = new Student(name,email,school,tShirtSize,technology,orginization,semester);
+        // Get Key;
+        String key = ref.push().getKey();
+
+
+        Student student = new Student(name,email,school,tShirtSize,technology,orginization,semester,key);
         //Update student to firebase
-        ref.push().setValue(student);
+        ref.child(key).setValue(student);
+
+
         finish();
 
 

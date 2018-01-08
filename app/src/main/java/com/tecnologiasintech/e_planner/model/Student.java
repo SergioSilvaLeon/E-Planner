@@ -6,6 +6,7 @@ package com.tecnologiasintech.e_planner.model;
 
 public class Student {
 
+    private String key;
     private String name;
     private String email;
     private String school;
@@ -17,7 +18,8 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String email, String school, String tShirtSize, String technology, String orginization, String semester) {
+    public Student(String name, String email, String school, String tShirtSize,
+                   String technology, String orginization, String semester, String key) {
         this.name = name;
         this.email = email;
         this.school = school;
@@ -25,6 +27,7 @@ public class Student {
         this.technology = technology;
         this.oranization = orginization;
         this.semester = semester;
+        this.key = key;
     }
 
     public String getName() {
@@ -81,5 +84,13 @@ public class Student {
 
     public void setSemester(String semester) {
         this.semester = semester;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 }

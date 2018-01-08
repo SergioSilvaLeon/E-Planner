@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        >
+        android:layout_marginEnd="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +24,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
+
+
 
             <ImageView
                 android:src="@drawable/icon_alumno"
@@ -37,19 +38,34 @@
                 android:layout_margin="12dp"/>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
 
                 <TextView
                     android:id="@+id/nameTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ZEPEDA MIRAMONTES FRANCISCA LORENA"
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:layout_height="match_parent"
+                    android:text="ZEPEDA MIRAMONTES"
                     android:textSize="14sp"
                     android:textStyle="normal|bold"/>
+
+                <ImageView
+                    android:id="@+id/imageViewDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_delete_black_18dp"/>
+
+                <ImageView
+                    android:id="@+id/imageViewOptions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_more_vert_black_18dp"/>
 
 
             </LinearLayout>
