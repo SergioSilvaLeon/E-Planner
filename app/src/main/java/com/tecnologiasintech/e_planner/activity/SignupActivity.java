@@ -88,7 +88,7 @@ public class SignupActivity extends AppCompatActivity {
                                     DatabaseReference databaseReference =
                                             FirebaseDatabase.getInstance().getReference("EPlanner/User");
 
-                                    User user = new User(email, fullName, mCheckBox.isChecked() );
+                                    User user = new User(email, fullName, mCheckBox.isChecked() ,null,null);
 
                                     databaseReference.push().setValue(user);
 
