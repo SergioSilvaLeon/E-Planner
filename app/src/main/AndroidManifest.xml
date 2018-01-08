@@ -52,7 +52,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tecnologiasintech.e_planner.activity.MainActivity"/>
         </activity>
-        <activity android:name=".activity.CreateStudentActivity"
+        <activity
+            android:name=".activity.CreateStudentActivity"
+            android:parentActivityName=".activity.StudentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.StudentActivity"/>
+        </activity>
+        <activity android:name=".activity.StudentVeiwActivity"
             android:parentActivityName=".activity.StudentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

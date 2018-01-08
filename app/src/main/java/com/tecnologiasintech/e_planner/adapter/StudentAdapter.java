@@ -1,6 +1,7 @@
 package com.tecnologiasintech.e_planner.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tecnologiasintech.e_planner.R;
+import com.tecnologiasintech.e_planner.activity.StudentActivity;
+import com.tecnologiasintech.e_planner.activity.StudentVeiwActivity;
 import com.tecnologiasintech.e_planner.model.Student;
 
 import java.util.ArrayList;
@@ -72,7 +75,20 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
                     int pos = getAdapterPosition();
 
                     if (pos != RecyclerView.NO_POSITION){
-                        Toast.makeText(mContext, mStudentList.get(pos).getName(),Toast.LENGTH_SHORT).show();
+
+                        Student student = mStudentList.get(pos);
+
+                        // Get Information and pass to new activity;
+                        Intent intent = new Intent(mContext, StudentVeiwActivity.class);
+                        intent.putExtra(StudentActivity.EXTRA_NAME, student.getName());
+                        intent.putExtra(StudentActivity.EXTRA_EMAIL, student.getEmail());
+                        intent.putExtra(StudentActivity.EXTRA_SCHOOL, student.getSchool());
+                        intent.putExtra(StudentActivity.EXTRA_TSHIRTSIZE, student.gettShirtSize());
+                        intent.putExtra(StudentActivity.EXTRA_TECHNOLOGY, student.getTechnology());
+                        intent.putExtra(StudentActivity.EXTRA_ORGINIAZTION, student.getOranization());
+                        intent.putExtra(StudentActivity.EXTRA_SEMESTER, student.getSemester());
+                        mContext.startActivity(intent);
+
                     }
 
                 }

@@ -20,6 +20,15 @@ import com.tecnologiasintech.e_planner.model.Student;
 
 public class StudentActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NAME = "EXTRA_NAME";
+    public static final String EXTRA_EMAIL = "EXTRA_EMAIL";
+    public static final String EXTRA_SCHOOL = "EXTRA_SCHOOL";
+    public static final String EXTRA_TSHIRTSIZE = "EXTRA_TSHIRTSIZE";
+    public static final String EXTRA_TECHNOLOGY = "EXTRA_TECHNOLOGY";
+    public static final String EXTRA_ORGINIAZTION = "EXTRA_ORGINIAZTION";
+    public static final String EXTRA_SEMESTER = "EXTRA_SEMESTER";
+
+
     private RecyclerView mRecyclerView;
     private StudentAdapter mStudentAdapter;
 
