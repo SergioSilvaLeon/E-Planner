@@ -1,67 +1,60 @@
 package com.tecnologiasintech.e_planner.activity;
 
 import android.content.Intent;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.tecnologiasintech.e_planner.adapter.AdapterViewPager;
 import com.tecnologiasintech.e_planner.R;
 
 public class MainActivity extends AppCompatActivity {
-
-    private AdapterViewPager mAdapterViewPager;
-    private ViewPager mViewPager;
-    private TabLayout mTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create Costume Tablayout for main view.
-        setTabLayout();
+        // Set up the view of the three layouts
+        View viewEvent = findViewById(R.id.activity_main_view_event);
+        View viewMentor = findViewById(R.id.activity_main_view_mentor);
+        View viewStudent = findViewById(R.id.activity_main_view_student);
 
-        // Create Costume Adapter for View Pager
-        setViewPager();
+        viewEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open Event Activity
+                Intent intent = new Intent
+                        (MainActivity.this, EventActivity.class);
+                startActivity(intent);
 
-    }
+            }
+        });
 
-    private void setViewPager() {
+        viewMentor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open Mentor Activity
+                Intent intent = new Intent(
+                        MainActivity.this, MentorActivity.class
+                );
+                startActivity(intent);
+            }
+        });
 
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open Student Acivity
+                Intent intent = new Intent(
+                        MainActivity.this, StudentActivity.class
+                );
+                startActivity(intent);
+            }
+        });
 
-         mAdapterViewPager = new AdapterViewPager(
-                 getSupportFragmentManager(),
-                 mTabLayout.getTabCount()
-         );
-
-         mViewPager.setAdapter(mAdapterViewPager);
-
-         // Enables Swiping
-        mTabLayout.setupWithViewPager(mViewPager);
-    }
-
-    private void setTabLayout() {
-
-        // Instanciate a Tab Layout
-        mTabLayout = (TabLayout) findViewById(R.id.tabLayout);
-
-        // We also asign a centered gravity.
-        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        // Add "Fixed Mode" so  all the tabs are the same size.
-        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
-
-        //Added two tabs to tabLayout
-        mTabLayout.addTab(mTabLayout.newTab());
-        mTabLayout.addTab(mTabLayout.newTab());
-        mTabLayout.addTab(mTabLayout.newTab());
-        mTabLayout.addTab(mTabLayout.newTab());
     }
 
     @Override

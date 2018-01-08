@@ -31,4 +31,7 @@
     <string name="action_sign_out">Sign Out</string>
     <string name="action_add_user">Add New User</string>
     <string name="action_change_password">Change Password</string>
+    <string name="title_activity_event">EventActivity</string>
+    <string name="title_activity_mentor">MentorActivity</string>
+    <string name="title_activity_student">StudentActivity</string>
 </resources>
