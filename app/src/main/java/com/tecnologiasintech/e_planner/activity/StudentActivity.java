@@ -16,7 +16,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.tecnologiasintech.e_planner.R;
-import com.tecnologiasintech.e_planner.adapter.EventAdapter;
 import com.tecnologiasintech.e_planner.adapter.StudentAdapter;
 import com.tecnologiasintech.e_planner.model.Student;
 
