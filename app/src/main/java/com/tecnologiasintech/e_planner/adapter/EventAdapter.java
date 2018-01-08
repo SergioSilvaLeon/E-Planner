@@ -1,6 +1,7 @@
 package com.tecnologiasintech.e_planner.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tecnologiasintech.e_planner.R;
+import com.tecnologiasintech.e_planner.activity.EventActivity;
+import com.tecnologiasintech.e_planner.activity.EventViewctivity;
+import com.tecnologiasintech.e_planner.activity.MentorActivity;
+import com.tecnologiasintech.e_planner.activity.MentorViewActivity;
 import com.tecnologiasintech.e_planner.model.Event;
 import com.tecnologiasintech.e_planner.model.Student;
+import com.tecnologiasintech.e_planner.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +86,33 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             mImageViewPopular = (ImageView) itemView.findViewById(R.id.imageViewPopular);
             mImageViewDelete = (ImageView) itemView.findViewById(R.id.imageViewDelete);
             mImageViewOptions = (ImageView) itemView.findViewById(R.id.imageViewOptions);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION){
+                        Event event = mEventList.get(pos);
+
+                        Intent intent = new Intent(mContext, EventViewctivity.class);
+
+                        intent.putExtra(EventActivity.EXTRA_NAME, event.getName());
+                        intent.putExtra(EventActivity.EXTRA_DATE, event.getDate());
+                        intent.putExtra(EventActivity.EXTRA_DESCRIPTION, event.getDescription());
+                        String bool;
+                        if (event.isPopular()){
+                            bool = "true";
+                        }else{
+                            bool = "false";
+                        }
+                        intent.putExtra(EventActivity.EXTRA_POPULAR, bool);
+                        intent.putExtra(EventActivity.EXTRA_HOST, event.getHost());
+
+                        mContext.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }
