@@ -12,9 +12,12 @@ import android.widget.TextView;
 
 import com.tecnologiasintech.e_planner.R;
 import com.tecnologiasintech.e_planner.activity.EventActivity;
+import com.tecnologiasintech.e_planner.activity.EventUpdateActivity;
 import com.tecnologiasintech.e_planner.activity.EventViewctivity;
 import com.tecnologiasintech.e_planner.activity.MentorActivity;
 import com.tecnologiasintech.e_planner.activity.MentorViewActivity;
+import com.tecnologiasintech.e_planner.activity.StudentActivity;
+import com.tecnologiasintech.e_planner.activity.UpdateStudentActivity;
 import com.tecnologiasintech.e_planner.model.Event;
 import com.tecnologiasintech.e_planner.model.Student;
 import com.tecnologiasintech.e_planner.model.User;
@@ -113,6 +116,38 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                     }
                 }
             });
+
+
+            mImageViewOptions.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION){
+
+                        Event event = mEventList.get(pos);
+                        // Get Information and pass to new activity;
+                        Intent intent = new Intent(mContext, EventUpdateActivity.class);
+                        intent.putExtra(EventActivity.EXTRA_NAME, event.getName());
+                        intent.putExtra(EventActivity.EXTRA_DATE, event.getDate());
+                        intent.putExtra(EventActivity.EXTRA_DESCRIPTION, event.getDescription());
+                        String bool;
+                        if (event.isPopular()){
+                            bool = "true";
+                        }else{
+                            bool = "false";
+                        }
+                        intent.putExtra(EventActivity.EXTRA_POPULAR, bool);
+                        intent.putExtra(EventActivity.EXTRA_HOST, event.getHost());
+                        intent.putExtra(EventActivity.EXTRA_KEY, event.getKey());
+
+                        mContext.startActivity(intent);
+
+                    }
+                }
+            });
+
+
         }
     }
 }

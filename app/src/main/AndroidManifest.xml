@@ -76,6 +76,8 @@
         </activity>
         <activity android:name=".activity.EventViewctivity">
         </activity>
+        <activity android:name=".activity.EventUpdateActivity">
+        </activity>
     </application>
 
 </manifest>
