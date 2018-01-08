@@ -12,19 +12,19 @@ public class Student {
     private String tShirtSize;
     private String technology;
     private String oranization;
-    private int semester;
+    private String semester;
 
     public Student() {
     }
 
-    public Student(String name, String email, String school, String tShirtSize, String technology, String oranization, int semester) {
+    public Student(String name, String email, String school, String tShirtSize, String technology, String orginization, String semester) {
         this.name = name;
         this.email = email;
         this.school = school;
         this.tShirtSize = tShirtSize;
         this.technology = technology;
-        this.oranization = oranization;
-        this.semester = semester;
+        this.oranization = orginization;
+        this.semester =semester;
     }
 
     public String getName() {
@@ -75,11 +75,11 @@ public class Student {
         this.oranization = oranization;
     }
 
-    public int getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 }

@@ -51,6 +51,8 @@ public class StudentActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        mStudentAdapter.reset();
+
         // atach firebase listener;
         DatabaseReference reference =
                 FirebaseDatabase.getInstance().getReference("EPlanner/Student");
@@ -90,9 +92,4 @@ public class StudentActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mStudentAdapter.reset();
-    }
 }
