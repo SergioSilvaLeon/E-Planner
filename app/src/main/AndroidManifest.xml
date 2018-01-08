@@ -72,6 +72,8 @@
         </activity>
         <activity android:name=".activity.MentorViewActivity">
         </activity>
+        <activity android:name=".activity.CreateEventActivity">
+        </activity>
     </application>
 
 </manifest>
