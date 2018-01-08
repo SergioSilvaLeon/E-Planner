@@ -70,6 +70,8 @@
         </activity>
         <activity android:name=".activity.CreateMentorActivity">
         </activity>
+        <activity android:name=".activity.MentorViewActivity">
+        </activity>
     </application>
 
 </manifest>

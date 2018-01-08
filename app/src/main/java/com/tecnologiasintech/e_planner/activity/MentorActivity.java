@@ -21,6 +21,11 @@ import com.tecnologiasintech.e_planner.model.User;
 
 public class MentorActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NAME = "EXTRA_NAME";
+    public static final String EXTRA_EMAIL = "EXTRA_EMAIL";
+    public static final String EXTRA_ADMIN = "EXTRA_ADMIN";
+    public static final String EXTRA_STACK = "EXTRA_STACK";
+
     private RecyclerView mRecyclerView;
     private MentorAdapter mMentorAdapter;
 
