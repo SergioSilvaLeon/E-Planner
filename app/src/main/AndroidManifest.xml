@@ -68,6 +68,8 @@
         </activity>
         <activity android:name=".activity.UpdateStudentActivity">
         </activity>
+        <activity android:name=".activity.CreateMentorActivity">
+        </activity>
     </application>
 
 </manifest>
