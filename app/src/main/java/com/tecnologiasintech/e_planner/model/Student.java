@@ -24,7 +24,7 @@ public class Student {
         this.tShirtSize = tShirtSize;
         this.technology = technology;
         this.oranization = orginization;
-        this.semester =semester;
+        this.semester = semester;
     }
 
     public String getName() {
