@@ -70,9 +70,6 @@ public class MainActivity extends AppCompatActivity {
             userSignOut();
         }
 
-        if (item.getItemId() == R.id.action_add_user){
-            addUser();
-        }
 
         if (item.getItemId() == R.id.action_change_password){
             changeUserPassword();
@@ -83,10 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeUserPassword() {
         startActivity(new Intent(this, ChangePasswordActivity.class));
-    }
-
-    private void addUser() {
-        startActivity(new Intent(this, SignupActivity.class));
     }
 
     private void userSignOut() {
