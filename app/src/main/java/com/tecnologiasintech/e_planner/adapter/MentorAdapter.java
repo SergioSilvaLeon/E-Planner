@@ -9,9 +9,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.tecnologiasintech.e_planner.R;
 import com.tecnologiasintech.e_planner.activity.MentorActivity;
 import com.tecnologiasintech.e_planner.activity.MentorViewActivity;
+import com.tecnologiasintech.e_planner.activity.StudentActivity;
+import com.tecnologiasintech.e_planner.activity.UpdateStudentActivity;
+import com.tecnologiasintech.e_planner.model.Student;
 import com.tecnologiasintech.e_planner.model.User;
 
 import java.util.ArrayList;
@@ -95,6 +100,29 @@ public class MentorAdapter extends RecyclerView.Adapter<MentorAdapter.ViewHolder
 
 
                         mContext.startActivity(intent);
+                    }
+                }
+            });
+
+            mImageViewDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if (pos != RecyclerView.NO_POSITION){
+
+                        String key = mUserList.get(pos).getKey();
+
+                        mUserList.remove(pos);
+
+                        notifyDataSetChanged();
+
+                        // remove from firebase
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                                .getReference("EPlanner/User");
+                        databaseReference.child(key).removeValue();
+
+
                     }
                 }
             });

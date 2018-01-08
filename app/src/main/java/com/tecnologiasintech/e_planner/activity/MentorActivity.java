@@ -25,6 +25,7 @@ public class MentorActivity extends AppCompatActivity {
     public static final String EXTRA_EMAIL = "EXTRA_EMAIL";
     public static final String EXTRA_ADMIN = "EXTRA_ADMIN";
     public static final String EXTRA_STACK = "EXTRA_STACK";
+    public static final String EXTRA_KEY = "EXTRA_KEY";
 
     private RecyclerView mRecyclerView;
     private MentorAdapter mMentorAdapter;
