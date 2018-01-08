@@ -28,10 +28,10 @@ public class CreateEventActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         editTextName = (EditText) findViewById(R.id.editText_name);
-        editTextDate = (EditText) findViewById(R.id.editText_email);
-        editTextDescription = (EditText) findViewById(R.id.editText_school);
-        editTextHost = (EditText) findViewById(R.id.editText_tshirtsize);
-        mCheckBoxPopular = (CheckBox) findViewById(R.id.checkBoxAdmin);
+        editTextDate = (EditText) findViewById(R.id.editText_date);
+        editTextDescription = (EditText) findViewById(R.id.editText_description);
+        editTextHost = (EditText) findViewById(R.id.editText_host);
+        mCheckBoxPopular = (CheckBox) findViewById(R.id.checkBoxPopular  );
 
         Button buttonCreateEvent = (Button) findViewById(R.id.btn_create_Event);
 
@@ -50,9 +50,9 @@ public class CreateEventActivity extends AppCompatActivity {
 
         // upload to firebase
         String name = editTextName.getText().toString();
-        String date = editTextName.getText().toString();
-        String description = editTextName.getText().toString();
-        String host = editTextName.getText().toString();
+        String date = editTextDate.getText().toString();
+        String description = editTextDescription.getText().toString();
+        String host = editTextHost.getText().toString();
         boolean isPopular = mCheckBoxPopular.isChecked();
 
         // get key
