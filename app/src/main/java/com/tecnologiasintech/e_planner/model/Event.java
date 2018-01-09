@@ -1,5 +1,8 @@
 package com.tecnologiasintech.e_planner.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sergiosilva on 1/8/18.
  */
@@ -12,9 +15,8 @@ public class Event {
     private boolean isPopular;
     private String host;
     private String key;
-
-    // lista de alumnos y mentores
-
+    private List<String> mentors = new ArrayList<>();
+    private List<String> Students = new ArrayList<>();
 
     public Event() {
     }
