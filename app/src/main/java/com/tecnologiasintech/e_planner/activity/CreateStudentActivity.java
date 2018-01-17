@@ -21,8 +21,7 @@ public class CreateStudentActivity extends AppCompatActivity {
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference("EPlanner/Student");
 
-    EditText editTextName,editTextEmail,editTextSchool,editTextTShirtSize,editTextTechnology,
-            editTextOrginization,editTextSemester;
+    EditText editTextName,editTextEmail,editTextSchool,editTextTechnology, editTextOrginization;
 
     private String tShirtSizeSelected, semesterSelected;
 
