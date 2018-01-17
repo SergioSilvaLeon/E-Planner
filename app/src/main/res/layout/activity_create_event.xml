@@ -35,17 +35,61 @@
                 android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 
+        <!-- Radio Button-->
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="onRadioButtonClicked"
+                android:text="Specific"/>
+            <RadioButton
+                android:id="@+id/radio_general"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="General"
+                android:onClick="onRadioButtonClicked"/>
+        </RadioGroup>
+
+        <!-- Replace with Calendar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/view_date">
+
+            <Button
+                android:id="@+id/picDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick Date"
+                android:onClick="datePicker"/>
+
+            <TextView
+                android:id="@+id/showDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"/>
+        </LinearLayout>
+
+
+        <!-- Spinner -->
+        <Spinner
+            android:id="@+id/spinnerFechaEvento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/editText_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Date of Event"
-                android:inputType="textEmailAddress|date"
-                android:singleLine="true"/>
         </android.support.design.widget.TextInputLayout>
 
 
