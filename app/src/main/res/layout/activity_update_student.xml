@@ -60,17 +60,10 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
+        <Spinner
+            android:id="@+id/spinnerEditTShirtSize"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/editText_tshirtsize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter T-Shirt Size"
-                />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content"/>
 
 
         <android.support.design.widget.TextInputLayout
@@ -99,18 +92,11 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/text_input_layout_email"
+        <Spinner
+            android:id="@+id/spinnerEditSemester"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"/>
 
-            <EditText
-                android:id="@+id/editText_semester"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Current Semester"
-                android:inputType="number"/>
-        </android.support.design.widget.TextInputLayout>
 
 
         <Button
