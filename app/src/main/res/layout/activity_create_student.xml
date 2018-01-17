@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
-            android:text="Create a new User"
+            android:text="Create a new Student"
             android:textSize="28dp"/>
 
         <android.support.design.widget.TextInputLayout
@@ -60,17 +60,10 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
+        <Spinner
+            android:id="@+id/spinnerTShirtSize"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/editText_tshirtsize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter T-Shirt Size"
-                />
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content"/>
 
 
         <android.support.design.widget.TextInputLayout
@@ -99,18 +92,10 @@
         </android.support.design.widget.TextInputLayout>
 
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/text_input_layout_email"
+        <Spinner
+            android:id="@+id/spinnerSemester"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/editText_semester"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Current Semester"
-                android:inputType="number"/>
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="wrap_content"/>
 
 
         <Button

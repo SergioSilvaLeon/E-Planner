@@ -35,4 +35,46 @@
     <string name="title_activity_mentor">MentorActivity</string>
     <string name="title_activity_student">StudentActivity</string>
     <string name="title_activity_create_event">CreateEventActivity</string>
+    <!-- Stack Spinner -->
+    <string-array name="stack_array">
+        <item>Selecionar Stack</item>
+        <item>Android</item>
+        <item>C#</item>
+        <item>C++</item>
+        <item>C</item>
+        <item>Go</item>
+        <item>IOS</item>
+        <item>JavaScript</item>
+        <item>Java</item>
+        <item>Php</item>
+        <item>Python</item>
+        <item>Ruby</item>
+    </string-array>
+
+    <string-array name="tshirt_array">
+        <item>Not Selected</item>
+        <item>XS</item>
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
+    <string-array name="semester_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+
+    </string-array>
+
 </resources>
