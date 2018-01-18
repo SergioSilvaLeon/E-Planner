@@ -27,6 +27,7 @@ import com.tecnologiasintech.e_planner.model.Event;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class EventUpdateActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
@@ -228,8 +229,16 @@ public class EventUpdateActivity extends AppCompatActivity implements DatePicker
 
     private void setDate(final Calendar calendar){
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        ((TextView) findViewById(R.id.showDateEdit)).setText(dateFormat.format(calendar.getTime()));
-        date = dateFormat.format(calendar.getTime());
+        Date pickedDate = calendar.getTime();
+        Date currentDate = new Date();
+
+        // If the given date is before the current date, create Toast
+        if (pickedDate.after(currentDate)) {
+            ((TextView) findViewById(R.id.showDateEdit)).setText(dateFormat.format(calendar.getTime()));
+            date = dateFormat.format(calendar.getTime());
+        }else {
+            Toast.makeText(this, "The date you have selected is not permited", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public  void datePickerEdit(View view){
