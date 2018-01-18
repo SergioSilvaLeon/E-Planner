@@ -105,6 +105,10 @@ public class CreateStudentActivity extends AppCompatActivity {
             editTextName.setError("Name field too long!");
         }
 
+        if (name.length() < 4){
+            editTextName.setError("Name field too short, please vertifty the length if more than 5 characters!");
+        }
+
         if (!name.matches("[a-zA-Z ]+")){
             editTextName.setError("Enter a valid name");
         }
