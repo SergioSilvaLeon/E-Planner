@@ -1,5 +1,6 @@
 package com.tecnologiasintech.e_planner.activity;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,10 +19,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.tecnologiasintech.e_planner.R;
 import com.tecnologiasintech.e_planner.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateMentorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -32,6 +39,7 @@ public class CreateMentorActivity extends AppCompatActivity implements AdapterVi
     private FirebaseAuth auth;
     private static final String PASSWORD = "nearsoft";
     private String stack_selected;
+    private Context mContext = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +53,39 @@ public class CreateMentorActivity extends AppCompatActivity implements AdapterVi
         inputEmail = (EditText) findViewById(R.id.email);
         inputfullName = (EditText) findViewById(R.id.fullName);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         // Create an ArrayAdapter using th estring array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.stack_array, android.R.layout.simple_spinner_dropdown_item);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        // TODO: update stack array with firebase
+        final DatabaseReference database = FirebaseDatabase.getInstance().getReference("EPlanner/Stacks");
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                List<String> list =  new ArrayList<>();
+
+                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    list.add(ds.getValue(String.class));
+                }
+
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(mContext,
+                        android.R.layout.simple_spinner_dropdown_item, list);
+
+
+                // Specify the layout to use when the list of choices appears
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                // Apply the adapter to the spinner
+                spinner.setAdapter(adapter);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
 
 
