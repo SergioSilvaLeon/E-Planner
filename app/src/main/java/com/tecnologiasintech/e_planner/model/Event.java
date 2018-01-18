@@ -15,19 +15,20 @@ public class Event {
     private boolean isPopular;
     private String host;
     private String key;
-    private List<String> mentors = new ArrayList<>();
-    private List<String> Students = new ArrayList<>();
+    private boolean isSpecific;
+
 
     public Event() {
     }
 
-    public Event(String name, String date, String description, boolean isPopular, String host, String key) {
+    public Event(String name, String date, String description, boolean isPopular, String host, String key, boolean isSpecific) {
         this.name = name;
         this.date = date;
         this.description = description;
         this.isPopular = isPopular;
         this.host = host;
         this.key = key;
+        this.isSpecific = isSpecific;
     }
 
     public String getName() {
@@ -76,5 +77,13 @@ public class Event {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public boolean isSpecific() {
+        return isSpecific;
+    }
+
+    public void setSpecific(boolean specific) {
+        isSpecific = specific;
     }
 }

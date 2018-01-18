@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,6 +27,7 @@ import com.tecnologiasintech.e_planner.model.Event;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class CreateEventActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
@@ -33,7 +35,7 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference("EPlanner/Event");
 
-    EditText editTextName,editTextDate,editTextDescription,editTextHost;
+    EditText editTextName,editTextDescription,editTextHost;
     CheckBox mCheckBoxPopular;
     String eventDateSelected;
     LinearLayout viewDate;
@@ -49,7 +51,6 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         editTextName = (EditText) findViewById(R.id.editText_name);
-        editTextDate = (EditText) findViewById(R.id.editText_date);
         editTextDescription = (EditText) findViewById(R.id.editText_description);
         editTextHost = (EditText) findViewById(R.id.editText_host);
         mCheckBoxPopular = (CheckBox) findViewById(R.id.checkBoxPopular);
@@ -105,6 +106,15 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
         * Todo: Add Date Logic
         * **/
 
+        if (!specific){
+            date = eventDateSelected;
+        }
+
+        if (date == null){
+            Toast.makeText(this, "Please, select a Date", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         // Name of the event
         if (TextUtils.isEmpty(name)){
@@ -112,8 +122,8 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
             return;
         }
 
-        if (name.length() > 30){
-            editTextName.setError("Please vertify the length of the name of the event");
+        if (name.length() > 30 && name.length() < 5){
+            editTextName.setError("Please, vertift the length of the Event is between 5 - 30 characters");
             return;
         }
 
@@ -132,7 +142,7 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
 
         if (host.length() < 5 || host.length() > 30){
             editTextHost.setError
-                    ("Please, vertift the length of the host is between 5 - 30 characters");
+                    ("Please, vertify the length of the host is between 5 - 30 characters");
 
             return;
         }
@@ -147,11 +157,8 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
         // get key
         String key = ref.push().getKey();
 
-        if (!specific){
-            date = eventDateSelected;
-        }
 
-        Event event = new Event(name, date, description, isPopular, host, key);
+        Event event = new Event(name, date, description, isPopular, host, key,specific);
         ref.child(key).setValue(event);
 
 
@@ -166,8 +173,17 @@ public class CreateEventActivity extends AppCompatActivity implements DatePicker
 
     private void setDate(final Calendar calendar){
         final DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM);
-        ((TextView) findViewById(R.id.showDate)).setText(dateFormat.format(calendar.getTime()));
-        date = dateFormat.format(calendar.getTime());
+
+        Date pickedDate = calendar.getTime();
+        Date currentDate = new Date();
+
+        // If the given date is before the current date, create Toast
+        if (pickedDate.after(currentDate)) {
+            ((TextView) findViewById(R.id.showDate)).setText(dateFormat.format(calendar.getTime()));
+            date = dateFormat.format(calendar.getTime());
+        }else {
+            Toast.makeText(this, "The date you have selected is not permited", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public  void datePicker(View view){
