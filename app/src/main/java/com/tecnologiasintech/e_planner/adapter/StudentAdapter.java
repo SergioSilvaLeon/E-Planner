@@ -1,7 +1,9 @@
 package com.tecnologiasintech.e_planner.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,26 +133,41 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.ViewHold
             mImageViewDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = getAdapterPosition();
 
-                    if (pos != RecyclerView.NO_POSITION){
+                    new AlertDialog.Builder(mContext)
+                            .setTitle("Delete Confirmation")
+                            .setMessage("Do you really want to delete?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                        String key = mStudentList.get(pos).getKey();
-
-                        mStudentList.remove(pos);
-
-                        notifyDataSetChanged();
-
-                        // remove from firebase
-                        DatabaseReference databaseReference = FirebaseDatabase.getInstance()
-                                .getReference("EPlanner/Student");
-                        databaseReference.child(key).removeValue();
-
-
-                    }
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    deleteItem();
+                                }})
+                            .setNegativeButton(android.R.string.no, null).show();
                 }
             });
         }
 
+        private void deleteItem(){
+            int pos = getAdapterPosition();
+
+            if (pos != RecyclerView.NO_POSITION){
+
+                String key = mStudentList.get(pos).getKey();
+
+                mStudentList.remove(pos);
+
+                notifyDataSetChanged();
+
+                // remove from firebase
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                        .getReference("EPlanner/Student");
+                databaseReference.child(key).removeValue();
+
+
+            }
+        }
+
     }
+
+
 }
