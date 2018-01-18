@@ -189,6 +189,11 @@ public class EventUpdateActivity extends AppCompatActivity implements DatePicker
             return;
         }
 
+        if (name.length() < 4){
+            editTextName.setError("Name field too short, please vertifty the length if more than 5 characters!");
+            return;
+        }
+
         // Description of the event
         if (description.length() > 120){
             editTextDescription.setError

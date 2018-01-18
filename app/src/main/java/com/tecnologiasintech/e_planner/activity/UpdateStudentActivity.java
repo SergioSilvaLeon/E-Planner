@@ -172,11 +172,13 @@ public class UpdateStudentActivity extends AppCompatActivity {
         }
         if (name.length() >= 50){
             editTextName.setError("Name field too long!");
+            return;
         }
 
 
         if (name.length() < 4){
             editTextName.setError("Name field too short, please vertifty the length if more than 5 characters!");
+            return;
         }
 
         if (!name.matches("[a-zA-Z ]+")){
@@ -199,6 +201,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
         // Enter Technologies
         if (!technology.matches("[a-zA-Z ]+")){
             editTextTechnology.setError("Enter a valid name");
+            return;
         }
         // Enter Organization
 
