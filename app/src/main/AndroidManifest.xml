@@ -64,17 +64,42 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tecnologiasintech.e_planner.activity.StudentActivity"/>
         </activity>
-        <activity android:name=".activity.UpdateStudentActivity">
+        <activity android:name=".activity.UpdateStudentActivity"
+                  android:parentActivityName=".activity.StudentActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.StudentActivity"/>
+
+    </activity>
+        <activity android:name=".activity.CreateMentorActivity"
+            android:parentActivityName=".activity.MentorActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.tecnologiasintech.e_planner.activity.MentorActivity"/>
         </activity>
-        <activity android:name=".activity.CreateMentorActivity">
+        <activity android:name=".activity.MentorViewActivity"
+                  android:parentActivityName=".activity.MentorActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.MentorActivity"/>
         </activity>
-        <activity android:name=".activity.MentorViewActivity">
+        <activity android:name=".activity.CreateEventActivity"
+            android:parentActivityName=".activity.EventActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.EventActivity"/>
         </activity>
-        <activity android:name=".activity.CreateEventActivity">
+        <activity android:name=".activity.EventViewctivity"
+                  android:parentActivityName=".activity.EventActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.EventActivity"/>
         </activity>
-        <activity android:name=".activity.EventViewctivity">
-        </activity>
-        <activity android:name=".activity.EventUpdateActivity">
+        <activity android:name=".activity.EventUpdateActivity"
+                  android:parentActivityName=".activity.EventActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.EventActivity"/>
         </activity>
         <activity android:name=".activity.ManageStacksActivity"
             android:parentActivityName=".activity.MainActivity">
