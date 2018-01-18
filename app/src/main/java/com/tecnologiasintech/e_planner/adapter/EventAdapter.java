@@ -113,6 +113,14 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                         }
                         intent.putExtra(EventActivity.EXTRA_POPULAR, bool);
                         intent.putExtra(EventActivity.EXTRA_HOST, event.getHost());
+                        String bool2;
+                        if (event.isSpecific()){
+                            bool2 = "true";
+                        }else{
+                            bool2 = "false";
+                        }
+                        intent.putExtra(EventActivity.EXTRA_SPECIFIC, bool2);
+
 
                         mContext.startActivity(intent);
                     }
@@ -142,6 +150,13 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
                         intent.putExtra(EventActivity.EXTRA_POPULAR, bool);
                         intent.putExtra(EventActivity.EXTRA_HOST, event.getHost());
                         intent.putExtra(EventActivity.EXTRA_KEY, event.getKey());
+                        String bool2;
+                        if (event.isSpecific()){
+                            bool2 = "true";
+                        }else{
+                            bool2 = "false";
+                        }
+                        intent.putExtra(EventActivity.EXTRA_SPECIFIC, bool2);
 
                         mContext.startActivity(intent);
 

@@ -30,6 +30,7 @@ public class EventActivity extends AppCompatActivity {
     public static final String EXTRA_POPULAR = "EXTRA_POPULAR";
     public static final String EXTRA_HOST = "EXTRA_HOST";
     public static final String EXTRA_KEY = "EXTRA_KEY";
+    public static final String EXTRA_SPECIFIC = "EXTRA_SPECIFIC";
 
     private RecyclerView mRecyclerView;
     private EventAdapter mEventAdapter;

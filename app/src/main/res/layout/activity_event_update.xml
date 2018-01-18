@@ -34,17 +34,56 @@
                 android:inputType="text"/>
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
+        <!-- Radio Button-->
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editText_date"
+            <RadioButton
+                android:id="@+id/radio_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:onClick="onRadioButtonEditClicked"
+                android:text="Specific"/>
+            <RadioButton
+                android:id="@+id/radio_general"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="General"
+                android:onClick="onRadioButtonEditClicked"/>
+        </RadioGroup>
+
+        <!-- Replace with Calendar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/view_dateEdit">
+
+            <Button
+                android:id="@+id/picDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Event Date"
-                />
-        </android.support.design.widget.TextInputLayout>
+                android:text="Pick Date"
+                android:onClick="datePickerEdit"/>
+
+            <TextView
+                android:id="@+id/showDateEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"/>
+        </LinearLayout>
+
+
+        <!-- Spinner -->
+        <Spinner
+            android:id="@+id/spinnerFechaEventoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+
 
 
         <android.support.design.widget.TextInputLayout
