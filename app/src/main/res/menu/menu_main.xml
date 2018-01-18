@@ -18,6 +18,12 @@
         android:title="@string/action_sign_out"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_manage_stack"
+        android:orderInCategory="100"
+        android:title="Manage Stacks"
+        app:showAsAction="never" />
+
 
 
 

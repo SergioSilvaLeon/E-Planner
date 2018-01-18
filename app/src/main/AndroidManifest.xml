@@ -76,6 +76,12 @@
         </activity>
         <activity android:name=".activity.EventUpdateActivity">
         </activity>
+        <activity android:name=".activity.ManageStacksActivity"
+            android:parentActivityName=".activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tecnologiasintech.e_planner.activity.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

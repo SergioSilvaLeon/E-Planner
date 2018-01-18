@@ -75,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
             changeUserPassword();
         }
 
+        if (item.getItemId() == R.id.action_manage_stack){
+            manageTechnologyStacks();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -86,6 +90,15 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
+    }
+
+    private void manageTechnologyStacks(){
+        // Create a section in firebase
+        startActivity(new Intent(this, ManageStacksActivity.class));
+        // add, delete
+
+        // expose in mentor activity
+
     }
 
 }
