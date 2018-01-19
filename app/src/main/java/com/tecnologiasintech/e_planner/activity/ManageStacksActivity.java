@@ -80,7 +80,7 @@ public class ManageStacksActivity extends AppCompatActivity {
 
                                 String input  = userInput.getText().toString();
 
-                                if (input.length() < 5 || input.length() >30){
+                                if (input.length() < 3 || input.length() >30){
                                     Toast.makeText(ManageStacksActivity.this,
                                             "Please verify the length of the input!",
                                             Toast.LENGTH_SHORT).show();
