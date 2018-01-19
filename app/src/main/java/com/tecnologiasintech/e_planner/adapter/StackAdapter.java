@@ -1,6 +1,8 @@
 package com.tecnologiasintech.e_planner.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +74,16 @@ public class StackAdapter extends RecyclerView.Adapter<StackAdapter.ViewHolder> 
             mImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    removeItem();
+
+                    new AlertDialog.Builder(mContext)
+                            .setTitle("Delete Confirmation")
+                            .setMessage("Do you really want to delete?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    removeItem();
+                                }})
+                            .setNegativeButton(android.R.string.no, null).show();
                 }
             });
         }
